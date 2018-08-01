@@ -28,13 +28,17 @@ import android.widget.FrameLayout;
 
 import com.example.xyzreader.R;
 
-
+/**
+ * What is the purpose of this class???
+ * I think it draws elevation drop shadows???
+ */
+@Deprecated
 public class DrawInsetsFrameLayout extends FrameLayout {
+
     private Drawable mInsetBackground;
     private Drawable mTopInsetBackground;
     private Drawable mBottomInsetBackground;
     private Drawable mSideInsetBackground;
-
     private Rect mInsets;
     private Rect mTempRect = new Rect();
     private OnInsetsCallback mOnInsetsCallback;
@@ -55,13 +59,13 @@ public class DrawInsetsFrameLayout extends FrameLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.DrawInsetsFrameLayout, defStyle, 0);
-        assert a != null;
-
-        mInsetBackground = a.getDrawable(R.styleable.DrawInsetsFrameLayout_insetBackground);
-
-        a.recycle();
+//        final TypedArray a = context.obtainStyledAttributes(attrs,
+//                R.styleable.DrawInsetsFrameLayout, defStyle, 0);
+//        assert a != null;
+//
+//        mInsetBackground = a.getDrawable(R.styleable.DrawInsetsFrameLayout_insetBackground);
+//
+//        a.recycle();
     }
 
     public void setInsetBackground(Drawable insetBackground) {

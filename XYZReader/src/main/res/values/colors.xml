@@ -1,24 +1,20 @@
-<!-- File created by the Android Action Bar Style Generator
-
-     Copyright (C) 2012 readyState Software Ltd
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-  
-          http://www.apache.org/licenses/LICENSE-2.0
-  
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
 <resources>
+    <!-- theme -->
+    <color name="theme_primary">#ec407a</color>
+    <color name="theme_primary_dark">#b4004e</color>
+    <color name="theme_accent">#ffff2d</color>
+
+    <!-- backgrounds -->
+    <color name="details_status">#111</color>
+    <color name="detail_view_background">#eee</color>
     <color name="photo_placeholder">#ccc</color>
-    <color name="theme_primary">#607D8B</color>
-    <color name="theme_primary_dark">#37474F</color>
-    <color name="theme_accent">#FFAB40</color>
-    <color name="ltgray">#444</color>
+    <color name="card_scrim">#99000000</color>
+    <color name="list_text_background">@android:color/transparent</color>
+
+    <!-- text colors -->
+    <color name="primary_text">#de000000</color>
+    <color name="primary_text_inverse">#deffffff</color>
+    <color name="secondary_text">#99000000</color>
+    <color name="secondary_text_inverse">#deffffff</color>
+
 </resources>

@@ -1,0 +1,108 @@
+<resources>
+
+    <style name="detail_fab">
+        <item name="fabSize">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="srcCompat">@drawable/ic_share_variant</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+    </style>
+
+    <style name="detail_collapsing_toolbar">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">@dimen/detail_image_height</item>
+        <item name="expandedTitleGravity">bottom|left</item>
+        <item name="expandedTitleMarginBottom">@dimen/detail_expanded_title_bottomMargin</item>
+        <item name="expandedTitleMarginStart">@dimen/detail_text_horiz_margin</item>
+        <item name="expandedTitleTextAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="layout_scrollFlags">scroll|exitUntilCollapsed|snap</item>
+        <item name="titleEnabled">true</item>
+    </style>
+
+    <style name="detail_collapsing_image">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">@dimen/match_parent</item>
+        <item name="layout_collapseMode">parallax</item>
+        <item name="layout_collapseParallaxMultiplier">0.75</item>
+        <item name="layout_scrollFlags">exitUntilCollapsed</item>
+    </style>
+
+    <style name="detail_collapsing_byline">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">26dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:gravity">top</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxWidth">@dimen/detail_card_max_width</item>
+        <item name="android:paddingLeft">@dimen/detail_text_horiz_margin</item>
+        <item name="android:paddingRight">@dimen/detail_text_horiz_margin</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="layout_collapseMode">parallax</item>
+        <item name="layout_collapseParallaxMultiplier">0.33</item>
+        <item name="layout_scrollFlags">exitUntilCollapsed</item>
+    </style>
+
+    <style name="detail_nested_scoller">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">@dimen/match_parent</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+        <item name="android:paddingBottom">150dp</item>
+    </style>
+
+    <style name="detail_bodycard">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:theme">@style/CardView</item>
+        <item name="android:layout_width">@dimen/detail_card_max_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/detail_card_elevation</item>
+        <item name="android:layout_marginTop">@dimen/detail_text_container_top_margin</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="detail_body_container">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">@dimen/detail_text_container_bottom_padding</item>
+        <item name="android:paddingLeft">64dp</item>
+        <item name="android:paddingRight">64dp</item>
+        <item name="android:paddingTop">@dimen/detail_metabar_vert_padding</item>
+    </style>
+
+    <style name="detail_body_title" parent="@style/Base.TextAppearance.AppCompat.Large">
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:lineSpacingMultiplier">0.9</item>
+        <item name="android:paddingBottom">@dimen/detail_metabar_title_bottom_padding</item>
+        <item name="android:textSize">@dimen/detail_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="detail_body_byline" parent="@style/Base.TextAppearance.AppCompat.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#8000</item>
+        <item name="android:textSize">@dimen/detail_byline_textsize</item>
+    </style>
+
+    <style name="detail_bodytext" parent="@style/Base.TextAppearance.AppCompat.Medium">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:maxWidth">@dimen/detail_card_max_width</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:paddingLeft">@dimen/detail_text_horiz_margin</item>
+        <item name="android:paddingRight">@dimen/detail_text_horiz_margin</item>
+        <item name="android:lineSpacingMultiplier">@fraction/detail_body_line_spacing_multiplier
+        </item>
+    </style>
+
+</resources>

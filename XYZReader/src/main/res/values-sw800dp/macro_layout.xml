@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- number of columns in books grid-->
+    <integer name="list_column_count">3</integer>
+
+    <!-- recyclerview padding -->
+    <dimen name="list_grid_padding">8dp</dimen>
+
+    <!-- recyclerview item margin (each item in grid) -->
+    <dimen name="list_item_margin">8dp</dimen>
+
+    <!-- dark background behind list item text -->
+    <color name="list_text_background">@color/card_scrim</color>
+
+    <!-- span list item text to full width since is has background -->
+    <dimen name="list_text_width">@dimen/match_parent</dimen>
+
+    <!-- grid item title properties -->
+    <dimen name="primary_text">18sp</dimen>
+    <dimen name="primary_text_height">40dp</dimen>
+    <color name="primary_text">@color/primary_text_inverse</color>
+
+    <!-- grid item subtitle properties -->
+    <dimen name="secondary_text">16sp</dimen>
+    <dimen name="secondary_text_height">40dp</dimen>
+    <color name="secondary_text">@color/secondary_text_inverse</color>
+
+    <!-- backdrop image height -->
+    <dimen name="detail_image_height">600dp</dimen>
+
+    <!-- text offset from top i.e. how much of image to reveal -->
+    <dimen name="detail_text_container_top_margin">500dp</dimen>
+
+    <!-- pad card bottom; this should be ~ top margin + 100dp -->
+    <dimen name="detail_text_container_bottom_padding">600dp</dimen>
+
+    <!-- text body max width -->
+    <dimen name="detail_card_max_width">704dp</dimen>
+
+    <!-- text body card elevation -->
+    <dimen name="detail_card_elevation">4dp</dimen>
+
+    <!-- author name font size -->
+    <dimen name="detail_byline_textsize">18sp</dimen>
+
+    <!-- text body initial max length -->
+    <integer name="detail_snippet_len">5000</integer>
+
+    <!-- text horizontal margin inside card -->
+    <dimen name="detail_text_horiz_margin">0dp</dimen>
+
+
+</resources>

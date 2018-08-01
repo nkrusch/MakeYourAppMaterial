@@ -1,5 +1,24 @@
 <resources>
-    <!-- detail -->
-    <dimen name="detail_photo_height">224dp</dimen>
-    <dimen name="detail_inner_horiz_margin">112dp</dimen>
+
+    <!-- number of columns in books grid-->
+    <integer name="list_column_count">2</integer>
+
+    <!-- make list images square -->
+    <dimen name="list_image_width">40dp</dimen>
+
+    <!-- make list images square -->
+    <dimen name="list_image_height">40dp</dimen>
+
+    <!-- image left and right margin -->
+    <dimen name="list_image_horz_margin">16dp</dimen>
+
+    <!-- image top and bottom margin -->
+    <dimen name="list_image_vert_margin">16dp</dimen>
+
+    <!-- text horizontal margin around body text -->
+    <dimen name="detail_text_horiz_margin">112dp</dimen>
+
+    <!-- backdrop image height -->
+    <dimen name="detail_image_height">256dp</dimen>
+
 </resources>

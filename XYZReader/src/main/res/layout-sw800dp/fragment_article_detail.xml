@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_view_background">
+
+    <!-- fixed feature image && gradient overlay -->
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_image_height"
+        android:scaleType="centerCrop" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_image_height"
+        android:background="@drawable/photo_background_protection" />
+
+    <!-- scrolling content w/ book text-->
+    <com.example.xyzreader.ui.ObservableScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <android.support.v7.widget.CardView style="@style/detail_bodycard">
+            <LinearLayout style="@style/detail_body_container">
+                <TextView
+                    android:id="@+id/article_title"
+                    style="@style/detail_body_title" />
+
+                <TextView
+                    android:id="@+id/article_byline"
+                    style="@style/detail_body_byline" />
+
+                <TextView
+                    android:id="@+id/article_body"
+                    style="@style/detail_bodytext" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </com.example.xyzreader.ui.ObservableScrollView>
+
+    <!-- toolbar on top -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar" />
+
+</RelativeLayout>

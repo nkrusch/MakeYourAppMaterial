@@ -1,7 +1,9 @@
 <resources>
-    <!-- detail -->
-    <bool name="detail_is_card">true</bool>
 
-    <dimen name="detail_photo_height">600dp</dimen>
-    <dimen name="detail_card_top_margin">256dp</dimen>
+    <!-- backdrop image height -->
+    <dimen name="detail_image_height">300dp</dimen>
+
+    <!-- text horizontal margin inside card -->
+    <dimen name="detail_text_horiz_margin">128dp</dimen>
+
 </resources>

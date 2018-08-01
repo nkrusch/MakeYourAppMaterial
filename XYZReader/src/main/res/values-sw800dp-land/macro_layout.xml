@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- number of columns in books grid-->
+    <integer name="list_column_count">4</integer>
+
+    <!-- backdrop image height -->
+    <dimen name="detail_image_height">500dp</dimen>
+
+    <!-- text offset from top i.e. how much of image to reveal -->
+    <dimen name="detail_text_container_top_margin">350dp</dimen>
+
+    <!-- pad card bottom; this should be ~ top margin + 100dp -->
+    <dimen name="detail_text_container_bottom_padding">450dp</dimen>
+
+    <!-- text body max width -->
+    <dimen name="detail_card_max_width">800dp</dimen>
+
+</resources>

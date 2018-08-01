@@ -1,0 +1,28 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/list_item">
+
+    <!-- for larger devices show material image list -->
+
+    <com.example.xyzreader.ui.DynamicHeightNetworkImageView
+        android:id="@+id/thumbnail"
+        style="@style/full_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/article_title"
+        style="@style/list_primary_text"
+        app:layout_constraintRight_toRightOf="@id/thumbnail"
+        app:layout_constraintLeft_toLeftOf="@id/thumbnail"
+        app:layout_constraintBottom_toTopOf="@id/article_subtitle" />
+
+    <TextView
+        android:id="@+id/article_subtitle"
+        style="@style/list_secondary_text"
+        app:layout_constraintRight_toRightOf="@id/thumbnail"
+        app:layout_constraintLeft_toLeftOf="@id/thumbnail"
+        app:layout_constraintBottom_toBottomOf="@id/thumbnail" />
+
+</android.support.constraint.ConstraintLayout>

@@ -8,6 +8,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
+/**
+ * This class caches image bitmaps
+ */
 public class ImageLoaderHelper {
     private static ImageLoaderHelper sInstance;
 
