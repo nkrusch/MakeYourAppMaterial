@@ -36,6 +36,7 @@ import com.example.xyzreader.data.UpdaterService;
 public class ArticleListActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private final String aboutUrl = "https://github.com/nkrusch/XYZReader";
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -89,8 +90,7 @@ public class ArticleListActivity extends AppCompatActivity
             return true;
         }
         if (id == R.id.about) {
-            Intent intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/nkrusch/MakeYourAppMaterial"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(aboutUrl));
             startActivity(intent);
             return true;
         }

@@ -128,7 +128,6 @@ public class ArticleDetailFragment extends Fragment implements
         int len = getResources().getInteger(R.integer.detail_snippet_len);
         String bodyText = fullBodyText.substring(0, Math.min(fullBodyText.length(), len));
         ((TextView) mRootView.findViewById(R.id.article_body)).setText(bodyText);
-        mRootView.setAlpha(1);
     }
 
     private void loadImage(String photoUrl) {
@@ -137,9 +136,13 @@ public class ArticleDetailFragment extends Fragment implements
                     @Override
                     public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                         Bitmap bitmap = imageContainer.getBitmap();
+                        ImageView photo = (ImageView) mRootView.findViewById(R.id.photo);
                         if (bitmap != null)
-                            ((ImageView) mRootView.findViewById(R.id.photo))
-                                    .setImageBitmap(imageContainer.getBitmap());
+                            photo.setImageBitmap(imageContainer.getBitmap());
+                        else
+                            photo.setBackgroundColor(getResources()
+                                    .getColor(R.color.photo_placeholder));
+                        mRootView.setAlpha(1);
                     }
 
                     @Override
