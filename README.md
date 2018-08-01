@@ -9,13 +9,12 @@ The purpose of this project is to update app starter code to use [Material Desig
 
 <table>
 <tr>
-<td>
-<img width="200" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample0.gif" alt="sample" />
+<td valign="top">
+<img width="240" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample0.gif" alt="sample" />
 <br/>Original
 </td>
-<td>
-<p align="center">→ → → → → → </p>
-<strong>Modifications</strong>
+<td valign="top">
+<h2>Modifications</h2>
 <br/>* Added color theme
 <br/>* Fixed contrast
 <br/>* Replaced cards with Material list
@@ -29,7 +28,7 @@ The purpose of this project is to update app starter code to use [Material Desig
 <br/>&nbsp; (looked unprofessional)
 </td>
 <td>
-<img width="260" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample.gif" alt="sample" />
+<img width="240" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample.gif" alt="sample" />
 <br/>Final
 </td>
 </tr>
