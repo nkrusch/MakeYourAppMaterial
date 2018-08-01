@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.format.DateUtils;
@@ -84,37 +85,32 @@ public class ArticleDetailFragment extends Fragment implements
         return mRootView;
     }
 
-    private Date parsePublishedDate(String date) {
+    private String parsePublishedDate(String date) {
+        Date publishedDate;
         try {
-            return dateFormat.parse(date);
+            publishedDate= dateFormat.parse(date);
         } catch (ParseException ex) {
-            return new Date();
+            publishedDate= new Date();
         }
+        return publishedDate.before(START_OF_EPOCH.getTime()) ?
+                outputFormat.format(publishedDate) :
+                DateUtils.getRelativeTimeSpanString(
+                        publishedDate.getTime(),
+                        System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                        DateUtils.FORMAT_ABBREV_ALL).toString();
     }
 
     private void setupViews() {
-
         if (mRootView == null || mCursor == null) return;
 
         String title = mCursor.getString(ArticleLoader.Query.TITLE);
         String author = mCursor.getString(ArticleLoader.Query.AUTHOR);
         fullBodyText = mCursor.getString(ArticleLoader.Query.BODY);
         String photoUrl = mCursor.getString(ArticleLoader.Query.PHOTO_URL);
-        Date publishedDate = parsePublishedDate(mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE));
+        String date = parsePublishedDate(mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE));
         loadImage(photoUrl);
 
-        String date = publishedDate.before(START_OF_EPOCH.getTime()) ?
-                outputFormat.format(publishedDate) :
-                DateUtils.getRelativeTimeSpanString(
-                        publishedDate.getTime(),
-                        System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                        DateUtils.FORMAT_ABBREV_ALL).toString();
-
-        SpannableString tmp = new SpannableString(author + " – " + date);
-        tmp.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
-                0, author.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        android.support.v7.widget.Toolbar tb = (android.support.v7.widget.Toolbar) mRootView.findViewById(R.id.toolbar);
+        Toolbar tb = (Toolbar) mRootView.findViewById(R.id.toolbar);
         tb.setNavigationIcon(R.drawable.ic_arrow_back);
         tb.setNavigationOnClickListener(upAction());
 
@@ -122,6 +118,9 @@ public class ArticleDetailFragment extends Fragment implements
         if (tv_articleTitle != null) tv_articleTitle.setText(title);
         else tb.setTitle(title);
 
+        SpannableString tmp = new SpannableString(author + " – " + date);
+        tmp.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                0, author.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         TextView tv_articleByLine = (TextView) mRootView.findViewById(R.id.article_byline);
         if (tv_articleByLine != null)
             tv_articleByLine.setText(tmp);
