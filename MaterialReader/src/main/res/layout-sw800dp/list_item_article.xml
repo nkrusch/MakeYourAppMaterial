@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/list_item">
 
-    <!-- for larger devices show material image list -->
+    <!--
+        On larger devices show material image list.
+        Since the cards are bigger they can easily fit the
+        book title text and allows taking advantage of the imagery.
+        ref: https://material.io/design/components/image-lists.html
+    -->
 
     <com.example.xyzreader.ui.DynamicHeightNetworkImageView
         android:id="@+id/thumbnail"
-        style="@style/full_image"
+        style="@style/list_full_image"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -3,37 +3,43 @@
     android:layout_height="match_parent"
     android:background="@color/detail_view_background">
 
-    <!-- fixed feature image && gradient overlay -->
+    <!-- book image -->
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/detail_image_height"
+        style="@style/detail_fixed_image"
         android:scaleType="centerCrop" />
+
+    <!-- image gradient overlay -->
     <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/detail_image_height"
+        style="@style/detail_fixed_image"
         android:background="@drawable/photo_background_protection" />
 
     <!-- scrolling content w/ book text-->
     <com.example.xyzreader.ui.ObservableScrollView
         android:id="@+id/scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
+        style="@style/detail_observable_scroll">
         <android.support.v7.widget.CardView style="@style/detail_bodycard">
             <LinearLayout style="@style/detail_body_container">
+
+                <!-- book title -->
                 <TextView
                     android:id="@+id/article_title"
                     style="@style/detail_body_title" />
 
+                <!-- author && date -->
                 <TextView
                     android:id="@+id/article_byline"
                     style="@style/detail_body_byline" />
 
+                <!-- body text -->
                 <TextView
                     android:id="@+id/article_body"
                     style="@style/detail_bodytext" />
+
+                <Button
+                    android:id="@+id/expand_body"
+                    style="@style/detail_expand_button" />
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </com.example.xyzreader.ui.ObservableScrollView>

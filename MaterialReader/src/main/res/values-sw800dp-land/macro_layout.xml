@@ -13,6 +13,6 @@
     <dimen name="detail_text_container_bottom_padding">450dp</dimen>
 
     <!-- text body max width -->
-    <dimen name="detail_card_max_width">800dp</dimen>
+    <dimen name="detail_bodytext_max_width">800dp</dimen>
 
 </resources>

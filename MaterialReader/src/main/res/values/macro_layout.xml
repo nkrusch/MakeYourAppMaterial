@@ -1,40 +1,68 @@
 <resources>
-    <dimen name="match_parent">-1px</dimen>
-    <dimen name="fab_margin">24dp</dimen>
-    <dimen name="card_radius">0dp</dimen>
 
+    <!-- use match parent in res styles -->
+    <dimen name="match_parent">-1px</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!-- BOOKS LIST ACTIVITY -->
+    <!-- book text properties -->
     <dimen name="primary_text">16sp</dimen>
     <dimen name="primary_text_height">36dp</dimen>
     <dimen name="secondary_text">14sp</dimen>
     <dimen name="secondary_text_height">20dp</dimen>
+    <dimen name="list_text_width">0dp</dimen> <!-- wrap_content -->
 
-    <integer name="list_number_visibility">2</integer>
+    <!-- list items -->
     <integer name="list_column_count">1</integer>
+    <integer name="list_number_visibility">2</integer> <!-- 0: visible, 2: gone -->
     <dimen name="list_item_margin">0dp</dimen>
-    <dimen name="list_text_width">0dp</dimen>
+
+    <!-- list image properties -->
     <dimen name="list_image_width">100dp</dimen>
     <dimen name="list_image_height">56dp</dimen>
     <dimen name="list_image_horz_margin">0dp</dimen>
     <dimen name="list_image_vert_margin">8dp</dimen>
+
+    <!-- recyclerview padding -->
     <dimen name="list_grid_padding">0dp</dimen>
     <dimen name="list_rpadding">@dimen/list_grid_padding</dimen>
     <dimen name="list_lpadding">@dimen/list_grid_padding</dimen>
     <dimen name="list_tpadding">@dimen/list_grid_padding</dimen>
     <dimen name="list_bpadding">@dimen/list_grid_padding</dimen>
 
-    <dimen name="detail_text_horiz_margin">16dp</dimen>
-    <dimen name="detail_card_max_width">10000px</dimen>
-    <dimen name="detail_metabar_vert_padding">16dp</dimen>
-    <dimen name="detail_metabar_title_bottom_padding">4dp</dimen>
-    <dimen name="detail_body_bottom_margin">88dp</dimen>
-    <dimen name="detail_title_text_size">27sp</dimen>
-    <dimen name="detail_card_elevation">0dp</dimen>
+
+    <!-- DETAILS ACTIVITY -->
+    <!-- hero image -->
     <dimen name="detail_image_height">400dp</dimen>
-    <dimen name="detail_text_container_top_margin">300dp</dimen>
-    <dimen name="detail_text_container_bottom_padding">400dp</dimen>
-    <dimen name="detail_byline_textsize">14sp</dimen>
-    <dimen name="detail_expanded_title_bottomMargin">50dp</dimen>
+
+    <!-- spacing between book text and surrounding container -->
+    <dimen name="detail_text_horiz_margin">16dp</dimen>
+    <dimen name="detail_text_top_padding">16dp</dimen>
+    <dimen name="detail_bodytext_max_width">10000px</dimen>
+
+    <!-- body text properties -->
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
-    <integer name="detail_snippet_len">2000</integer>
+    <integer name="detail_snippet_len">2000</integer> <!-- body text page length -->
+
+    <!-- book details displayed using collapsing toolbar -->
+    <dimen name="detail_collapsing_byline_text_size">14sp</dimen>
+    <dimen name="detail_collapsing_byline_height">26dp</dimen>
+    <dimen name="detail_collapsing_byline_bottom_margin">14dp</dimen>
+    <dimen name="detail_expanded_title_bottomMargin">50dp</dimen> <!-- more than byline height -->
+
+    <!-- book details displayed inside card view w/ fixed image -->
+    <dimen name="detail_text_container_top_margin">300dp</dimen>
+    <dimen name="detail_text_container_bottom_padding">400dp</dimen> <!-- ~ top margin + 100dp -->
+    <dimen name="detail_text_container_top_padding">@dimen/detail_text_top_padding</dimen>
+    <dimen name="detail_text_container_left_padding">64dp</dimen>
+    <dimen name="detail_text_container_right_padding">64dp</dimen>
+    <dimen name="detail_title_bottom_spacing">4dp</dimen>
+    <dimen name="detail_body_top_spacing">24dp</dimen>
+    <dimen name="detail_title_text_size">27sp</dimen>
+    <dimen name="detail_byline_text_size">14sp</dimen>
+    <dimen name="detail_card_elevation">2dp</dimen>
+    <dimen name="detail_card_radius">0dp</dimen>
 
 </resources>

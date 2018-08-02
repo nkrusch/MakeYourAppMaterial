@@ -9,27 +9,27 @@ The purpose of this project is to update app starter code to use [Material Desig
 
 <table>
 <tr>
-<td valign="top">
-<img width="240" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample0.gif" alt="sample" />
-<br/>Original
-</td>
-<td valign="top">
-<h2>Modifications</h2>
-<br/>* Added color theme
-<br/>* Fixed contrast
-<br/>* Replaced cards with Material list
-<br/>* Collapsing toolbar
-<br/>* fixed FAB transition
-<br/>* Custom ViewPager page transform
-<br/>* Added main activity menu
-<br/>* Improved image utilization
-<br/>* Updated tablet layouts
-<br/>* Removed "xyzreader" logo
-<br/>&nbsp; (looked unprofessional)
+<td>
+    <h3>BEFORE</h3>
+    <img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533156191/xyzreader/ospg.gif" alt="original" />
 </td>
 <td>
-<img width="240" src="https://raw.githubusercontent.com/nkrusch/XYZReader/gh-pages/sample.gif" alt="sample" />
-<br/>Final
+    <h3>AFTER</h3>
+    <img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533156191/xyzreader/nspg.gif" alt="final" />
 </td>
 </tr>
 </table>
+
+| Modifications |
+| --- |
+| Added theme colors |
+| Fixed text contrast |
+| Replaced cards with material list (small device) |
+| Replaced cards with material image list (tablet) |
+| Added collapsing toolbar |
+| Fixed FAB position during transition |
+| Custom ViewPager page transform |
+| Added menu to main activity |
+| Improved image utilization i.e. full bleed |
+| Added text paging to improve load time |
+

@@ -4,7 +4,7 @@
     <dimen name="detail_title_text_size">42sp</dimen>
 
     <!-- book title spacing between subtitle -->
-    <dimen name="detail_metabar_title_bottom_padding">8dp</dimen>
+    <dimen name="detail_title_bottom_spacing">8dp</dimen>
 
     <!-- book body text line spacing -->
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.3</item>
@@ -13,7 +13,7 @@
     <dimen name="detail_text_horiz_margin">64dp</dimen>
 
     <!-- text vertical padding inside card -->
-    <dimen name="detail_metabar_vert_padding">32dp</dimen>
+    <dimen name="detail_text_top_padding">32dp</dimen>
 
     <!-- backdrop image height -->
     <dimen name="detail_image_height">500dp</dimen>

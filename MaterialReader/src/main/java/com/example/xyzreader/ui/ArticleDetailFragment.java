@@ -14,6 +14,7 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import static android.view.View.GONE;
+
 /**
  * A fragment representing a single Article detail screen. This fragment is
  * either contained in a {@link ArticleListActivity} in two-pane mode (on
@@ -35,6 +38,7 @@ import java.util.GregorianCalendar;
 public class ArticleDetailFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
+    public static final String EXPANDED_STATE = "text_state";
     public static final String ARG_ITEM_ID = "item_id";
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     private SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy");
@@ -44,12 +48,9 @@ public class ArticleDetailFragment extends Fragment implements
     private Cursor mCursor;
     private View mRootView;
     private long mItemId;
+    private int bodyTextVisibleLength = 0;
 
     public ArticleDetailFragment() {
-    }
-
-    private void setText() {
-        ((TextView) mRootView.findViewById(R.id.article_body)).setText(fullBodyText);
     }
 
     public static ArticleDetailFragment newInstance(long itemId) {
@@ -63,6 +64,7 @@ public class ArticleDetailFragment extends Fragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUserVisibleHint(false);
 
         if (getArguments().containsKey(ARG_ITEM_ID))
             mItemId = getArguments().getLong(ARG_ITEM_ID);
@@ -82,15 +84,20 @@ public class ArticleDetailFragment extends Fragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mRootView.setAlpha(0);
+        if (savedInstanceState != null && savedInstanceState.containsKey(EXPANDED_STATE))
+            bodyTextVisibleLength = savedInstanceState.getInt(EXPANDED_STATE);
         return mRootView;
     }
 
+    /**
+     * Get formatted book publish date
+     */
     private String parsePublishedDate(String date) {
         Date publishedDate;
         try {
-            publishedDate= dateFormat.parse(date);
+            publishedDate = dateFormat.parse(date);
         } catch (ParseException ex) {
-            publishedDate= new Date();
+            publishedDate = new Date();
         }
         return publishedDate.before(START_OF_EPOCH.getTime()) ?
                 outputFormat.format(publishedDate) :
@@ -100,6 +107,9 @@ public class ArticleDetailFragment extends Fragment implements
                         DateUtils.FORMAT_ABBREV_ALL).toString();
     }
 
+    /**
+     * set view texts and start loading book image
+     */
     private void setupViews() {
         if (mRootView == null || mCursor == null) return;
 
@@ -124,12 +134,12 @@ public class ArticleDetailFragment extends Fragment implements
         TextView tv_articleByLine = (TextView) mRootView.findViewById(R.id.article_byline);
         if (tv_articleByLine != null)
             tv_articleByLine.setText(tmp);
-
-        int len = getResources().getInteger(R.integer.detail_snippet_len);
-        String bodyText = fullBodyText.substring(0, Math.min(fullBodyText.length(), len));
-        ((TextView) mRootView.findViewById(R.id.article_body)).setText(bodyText);
+        setBodyText();
     }
 
+    /**
+     * load book image then reveal the layout once image load is done
+     */
     private void loadImage(String photoUrl) {
         ImageLoaderHelper.getInstance(getActivity()).getImageLoader().get(photoUrl,
                 new ImageLoader.ImageListener() {
@@ -142,16 +152,19 @@ public class ArticleDetailFragment extends Fragment implements
                         else
                             photo.setBackgroundColor(getResources()
                                     .getColor(R.color.photo_placeholder));
-                        mRootView.setAlpha(1);
+                        mRootView.animate().setDuration(300).alpha(1);
                     }
 
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-
+                        mRootView.setAlpha(1);
                     }
                 });
     }
 
+    /**
+     * handle toolbar up action
+     */
     private View.OnClickListener upAction() {
         return new View.OnClickListener() {
             @Override
@@ -159,6 +172,46 @@ public class ArticleDetailFragment extends Fragment implements
                 ((AppCompatActivity) getActivity()).onSupportNavigateUp();
             }
         };
+    }
+
+    /**
+     * update body text; this is a hacky way to page the content
+     * because it takes forever to load the full text into textview
+     */
+    private void setBodyText() {
+        if (mRootView == null) return;
+        TextView tv_bodytext = (TextView) mRootView.findViewById(R.id.article_body);
+        final Button expando_btn = (Button) mRootView.findViewById(R.id.expand_body);
+        final int len = getResources().getInteger(R.integer.detail_snippet_len);
+        if (bodyTextVisibleLength == 0) bodyTextVisibleLength = len;
+
+        if (bodyTextVisibleLength >= fullBodyText.length()) {
+            tv_bodytext.setText(fullBodyText);
+            expando_btn.setOnClickListener(null);
+            expando_btn.setVisibility(GONE);
+
+        } else {
+            String bodyText = fullBodyText.substring(0, bodyTextVisibleLength);
+            int cut_at = bodyText.lastIndexOf(".") + 1;
+            bodyText = bodyText.substring(0, cut_at).trim();
+            bodyTextVisibleLength = cut_at;
+            tv_bodytext.setText(bodyText);
+
+            expando_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    bodyTextVisibleLength += len;
+                    setBodyText();
+                }
+            });
+            expando_btn.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(EXPANDED_STATE, bodyTextVisibleLength);
     }
 
     @Override

@@ -5,14 +5,8 @@
 
     <!-- make list images square -->
     <dimen name="list_image_width">40dp</dimen>
-
-    <!-- make list images square -->
     <dimen name="list_image_height">40dp</dimen>
-
-    <!-- image left and right margin -->
     <dimen name="list_image_horz_margin">16dp</dimen>
-
-    <!-- image top and bottom margin -->
     <dimen name="list_image_vert_margin">16dp</dimen>
 
     <!-- text horizontal margin around body text -->

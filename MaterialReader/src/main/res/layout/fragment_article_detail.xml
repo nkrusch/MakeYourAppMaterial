@@ -1,33 +1,33 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/amazing"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- collapsing toolbar w/ image & book title -->
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/not_useless"
+        android:id="@+id/thisid_isnot_useless"
         style="@style/appbarlayout">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             style="@style/detail_collapsing_toolbar">
 
+            <!-- book image -->
             <ImageView
                 android:id="@+id/photo"
                 style="@style/detail_collapsing_image"
                 android:scaleType="centerCrop" />
 
+            <!-- image gradient overlay -->
             <View
                 style="@style/detail_collapsing_image"
                 android:background="@drawable/photo_background_protection" />
 
+            <!-- book title -->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                style="@style/toolbar"
-                app:layout_collapseMode="pin" />
+                style="@style/detail_toolbar" />
 
+            <!-- author && date -->
             <TextView
                 android:id="@+id/article_byline"
                 style="@style/detail_collapsing_byline" />
@@ -35,15 +35,26 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <!-- text content (body text only) -->
-    <app:android.support.v4.widget.NestedScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
-        style="@style/detail_nested_scoller">
+        style="@style/detail_nested_scroller">
 
-        <TextView
-            android:id="@+id/article_body"
-            style="@style/detail_bodytext" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </app:android.support.v4.widget.NestedScrollView>
+            <!-- body text -->
+            <TextView
+                android:id="@+id/article_body"
+                style="@style/detail_bodytext" />
+
+            <Button
+                android:id="@+id/expand_body"
+                style="@style/detail_expand_button" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

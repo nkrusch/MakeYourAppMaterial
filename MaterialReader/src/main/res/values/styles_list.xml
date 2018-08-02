@@ -1,7 +1,22 @@
 <resources>
 
-    <!-- articles list view -->
-    <style name="twoline_list_text">
+    <!-- BOOKS LIST ACTIVITY STYLES -->
+
+    <style name="list_appbarlayout" parent="appbarlayout">
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="list_toolbar" parent="toolbar">
+        <item name="layout_scrollFlags">scroll|enterAlways</item>
+    </style>
+
+    <style name="list_swiperefresh">
+       <item name="android:layout_width">@dimen/match_parent</item>
+       <item name="android:layout_height">@dimen/match_parent</item>
+       <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+    </style>
+
+    <style name="list_twoline_text">
         <item name="android:layout_width">@dimen/list_text_width</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
@@ -31,14 +46,14 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="full_image">
+    <style name="list_full_image">
         <item name="android:layout_width">@dimen/match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:background">@color/card_scrim</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="list_primary_text" parent="twoline_list_text">
+    <style name="list_primary_text" parent="list_twoline_text">
         <item name="android:layout_height">@dimen/primary_text_height</item>
         <item name="android:gravity">bottom</item>
         <item name="android:paddingTop">16dp</item>
@@ -46,7 +61,7 @@
         <item name="android:textSize">@dimen/primary_text</item>
     </style>
 
-    <style name="list_secondary_text" parent="twoline_list_text">
+    <style name="list_secondary_text" parent="list_twoline_text">
         <item name="android:layout_height">@dimen/secondary_text_height</item>
         <item name="android:textColor">@color/secondary_text</item>
         <item name="android:textSize">@dimen/secondary_text</item>

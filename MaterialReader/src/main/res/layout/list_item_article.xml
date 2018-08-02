@@ -2,7 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/list_item">
 
-    <!-- on smaller devices show material list -->
+    <!--
+        On smaller devices show material two-line list.
+        This list accommodates longer title text better
+        than trying to fit it inside a small card.
+        ref: https://material.io/design/components/lists.html
+    -->
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/thumbnail"

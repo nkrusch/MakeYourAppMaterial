@@ -2,7 +2,7 @@
     <!-- theme -->
     <color name="theme_primary">#ec407a</color>
     <color name="theme_primary_dark">#b4004e</color>
-    <color name="theme_accent">#ffff2d</color>
+    <color name="theme_accent">#8BC34A</color>
 
     <!-- backgrounds -->
     <color name="details_status">#111</color>
@@ -16,5 +16,8 @@
     <color name="primary_text_inverse">#deffffff</color>
     <color name="secondary_text">#99000000</color>
     <color name="secondary_text_inverse">#deffffff</color>
+    <color name="detail_body_title">#000</color>
+    <color name="detail_body_byline">#8000</color>
+    <color name="detail_collapsing_byline">@android:color/white</color>
 
 </resources>

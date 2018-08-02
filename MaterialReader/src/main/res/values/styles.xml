@@ -1,18 +1,15 @@
 <resources>
 
-    <!-- application theme -->
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/theme_primary</item>
         <item name="colorPrimaryDark">@color/theme_primary_dark</item>
         <item name="colorAccent">@color/theme_accent</item>
     </style>
 
-    <!-- use muted colors in this specific activity; this helps to direct focus to content -->
     <style name="Theme.Bacon.Detail" parent="Theme.Bacon">
         <item name="colorPrimaryDark">@color/details_status</item>
     </style>
 
-    <!-- generic styles -->
     <style name="appbarlayout">
         <item name="android:layout_width">@dimen/match_parent</item>
         <item name="android:layout_height">wrap_content</item>

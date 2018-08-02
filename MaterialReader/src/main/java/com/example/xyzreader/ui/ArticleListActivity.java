@@ -37,11 +37,12 @@ public class ArticleListActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final String aboutUrl = "https://github.com/nkrusch/XYZReader";
-    private Toolbar mToolbar;
+    private BroadcastReceiver mRefreshingReceiver = setBroadcastReceiver();
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
     private boolean mIsRefreshing = false;
     private boolean init = false;
+    private Toolbar mToolbar;
     Snackbar snackbar;
 
     @Override
@@ -56,12 +57,18 @@ public class ArticleListActivity extends AppCompatActivity
         getLoaderManager().initLoader(0, null, this);
     }
 
+    /**
+     * Setup activity toolbar
+     */
     private void initToolBar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle(R.string.app_name);
         setSupportActionBar(mToolbar);
     }
 
+    /**
+     * run refresh() when when swiping down on top of layout
+     */
     private void bindSwipeRefreshAction() {
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         mSwipeRefreshLayout.setOnRefreshListener(
@@ -74,13 +81,18 @@ public class ArticleListActivity extends AppCompatActivity
         );
     }
 
+    /**
+     * add options menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
+    /**
+     * handle option menu clicks
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -98,6 +110,10 @@ public class ArticleListActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * refresh books from data source;
+     * show snackbar to explain to user what is happening
+     */
     private void refresh() {
         startService(new Intent(this, UpdaterService.class));
         if (snackbar != null && snackbar.isShown())
@@ -105,6 +121,21 @@ public class ArticleListActivity extends AppCompatActivity
         Snackbar snackbar = Snackbar.make(findViewById(R.id.view_root),
                 getString(R.string.action_refreshing), Snackbar.LENGTH_SHORT);
         snackbar.show();
+    }
+
+    /**
+     * Launch details activity
+     */
+    private void launchDetails(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    /**
+     * Updates the visibility state of refreshing icon in SwipeRefreshLayout
+     */
+    private void updateRefreshingUI() {
+        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
     }
 
     @Override
@@ -120,19 +151,17 @@ public class ArticleListActivity extends AppCompatActivity
         unregisterReceiver(mRefreshingReceiver);
     }
 
-    private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
-                mIsRefreshing = intent.getBooleanExtra(
-                        UpdaterService.EXTRA_REFRESHING, false);
-                updateRefreshingUI();
+    private BroadcastReceiver setBroadcastReceiver() {
+        return new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
+                    mIsRefreshing = intent.getBooleanExtra(
+                            UpdaterService.EXTRA_REFRESHING, false);
+                    updateRefreshingUI();
+                }
             }
-        }
-    };
-
-    private void updateRefreshingUI() {
-        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
+        };
     }
 
     @Override
@@ -140,6 +169,9 @@ public class ArticleListActivity extends AppCompatActivity
         return ArticleLoader.newAllArticlesInstance(this);
     }
 
+    /**
+     * Initialize the recyclerview
+     */
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         Adapter adapter = new Adapter(cursor);
@@ -150,6 +182,9 @@ public class ArticleListActivity extends AppCompatActivity
                 new StaggeredGridLayoutManager(columnCount,
                         StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
+
+        // force refresh from network location one time
+        // if there are no books in local database
         if (adapter.getItemCount() == 0 && !init) {
             init = true;
             refresh();
@@ -159,11 +194,6 @@ public class ArticleListActivity extends AppCompatActivity
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
-    }
-
-    private void launchDetails(Uri uri) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
     }
 
     private class Adapter extends RecyclerView.Adapter<ViewHolder> {

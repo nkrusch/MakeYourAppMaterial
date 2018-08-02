@@ -1,11 +1,10 @@
 <resources>
 
     <string name="app_name">XYZ Reader</string>
-    <string name="welcome_xyz_reader">Welcome to XYZ Reader!</string>
-
     <string name="action_refresh">Refresh</string>
     <string name="action_refreshing">Refreshing books...</string>
     <string name="action_share">Share</string>
     <string name="action_about">About...</string>
+    <string name="expand_body">Read more...</string>
 
 </resources>
