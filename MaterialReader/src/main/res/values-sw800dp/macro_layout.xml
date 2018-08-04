@@ -3,10 +3,12 @@
     <!-- number of columns in books grid-->
     <integer name="list_column_count">3</integer>
 
+    <!-- general margins -->
+    <dimen name="toolbar_horz_margin">24dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
 
     <!-- recyclerview padding -->
-    <dimen name="list_grid_padding">8dp</dimen>
+    <dimen name="list_grid_padding">16dp</dimen> <!-- 16dp + 8dp = 24dp -->
 
     <!-- recyclerview item margin (each item in grid) -->
     <dimen name="list_item_margin">8dp</dimen>

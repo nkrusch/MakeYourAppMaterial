@@ -6,7 +6,7 @@
     <!-- make list images square -->
     <dimen name="list_image_width">40dp</dimen>
     <dimen name="list_image_height">40dp</dimen>
-    <dimen name="list_image_horz_margin">16dp</dimen>
+    <dimen name="list_image_horz_margin">@dimen/toolbar_horz_margin</dimen>
     <dimen name="list_image_vert_margin">16dp</dimen>
 
     <!-- text horizontal margin around body text -->

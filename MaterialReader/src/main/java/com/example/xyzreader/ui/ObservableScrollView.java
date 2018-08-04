@@ -22,6 +22,7 @@ import android.widget.ScrollView;
 
 
 public class ObservableScrollView extends ScrollView {
+
     private Callbacks mCallbacks;
 
     public ObservableScrollView(Context context, AttributeSet attrs) {

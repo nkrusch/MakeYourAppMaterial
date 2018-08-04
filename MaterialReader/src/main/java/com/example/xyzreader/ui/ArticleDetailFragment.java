@@ -6,6 +6,8 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -29,6 +32,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -49,6 +53,7 @@ public class ArticleDetailFragment extends Fragment implements
     private View mRootView;
     private long mItemId;
     private int bodyTextVisibleLength = 0;
+    private int scrollY;
 
     public ArticleDetailFragment() {
     }
@@ -86,6 +91,8 @@ public class ArticleDetailFragment extends Fragment implements
         mRootView.setAlpha(0);
         if (savedInstanceState != null && savedInstanceState.containsKey(EXPANDED_STATE))
             bodyTextVisibleLength = savedInstanceState.getInt(EXPANDED_STATE);
+        if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_SCROLLPOS))
+            scrollY = savedInstanceState.getInt(EXTRA_SCROLLPOS);
         return mRootView;
     }
 
@@ -169,8 +176,9 @@ public class ArticleDetailFragment extends Fragment implements
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((AppCompatActivity) getActivity()).onSupportNavigateUp();
+                getActivity().finish();
             }
+
         };
     }
 
@@ -204,14 +212,9 @@ public class ArticleDetailFragment extends Fragment implements
                     setBodyText();
                 }
             });
-            expando_btn.setVisibility(View.VISIBLE);
+            expando_btn.setVisibility(VISIBLE);
         }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(EXPANDED_STATE, bodyTextVisibleLength);
+        restoreScrollPosition();
     }
 
     @Override
@@ -235,5 +238,47 @@ public class ArticleDetailFragment extends Fragment implements
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         mCursor = null;
+    }
+
+    private final String EXTRA_SCROLLPOS = "scroll_offset";
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(EXPANDED_STATE, bodyTextVisibleLength);
+        getScrollY();
+        outState.putInt(EXTRA_SCROLLPOS, scrollY);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getScrollY();
+    }
+
+    private void getScrollY() {
+        Object s = mRootView.findViewById(R.id.scrollview);
+        if (s instanceof NestedScrollView) {
+            scrollY = ((NestedScrollView) s).getScrollY();
+        }
+        if (s instanceof ObservableScrollView) {
+            scrollY = ((ObservableScrollView) s).getScrollY();
+        }
+    }
+
+    private void restoreScrollPosition() {
+        if (scrollY < 1) return;
+        Object s = mRootView.findViewById(R.id.scrollview);
+        Runnable r = new Runnable() {
+            public void run() {
+                mRootView.findViewById(R.id.scrollview).scrollTo(0, scrollY);
+            }
+        };
+        if (s instanceof NestedScrollView) {
+            ((NestedScrollView) s).post(r);
+        }
+        if (s instanceof ObservableScrollView) {
+            ((ObservableScrollView) s).post(r);
+        }
     }
 }

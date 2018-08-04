@@ -3,6 +3,10 @@
     <!-- book title font size -->
     <dimen name="detail_title_text_size">42sp</dimen>
 
+    <!-- general margins -->
+    <dimen name="toolbar_horz_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
     <!-- book title spacing between subtitle -->
     <dimen name="detail_title_bottom_spacing">8dp</dimen>
 
@@ -12,7 +16,7 @@
     <!-- text horizontal margin inside card -->
     <dimen name="detail_text_horiz_margin">64dp</dimen>
 
-    <!-- text vertical padding inside card -->
+    <!-- text top padding inside card -->
     <dimen name="detail_text_top_padding">32dp</dimen>
 
     <!-- backdrop image height -->

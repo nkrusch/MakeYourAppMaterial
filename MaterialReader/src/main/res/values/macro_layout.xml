@@ -4,6 +4,7 @@
     <dimen name="match_parent">-1px</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="toolbar_horz_margin">16dp</dimen>
 
 
     <!-- BOOKS LIST ACTIVITY -->
@@ -18,6 +19,7 @@
     <integer name="list_column_count">1</integer>
     <integer name="list_number_visibility">2</integer> <!-- 0: visible, 2: gone -->
     <dimen name="list_item_margin">0dp</dimen>
+    <dimen name="list_number_horz_padding">@dimen/toolbar_horz_margin</dimen>
 
     <!-- list image properties -->
     <dimen name="list_image_width">100dp</dimen>

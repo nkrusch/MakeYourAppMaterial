@@ -57,7 +57,6 @@ public class ArticleDetailActivity extends AppCompatActivity
         // create adapter
         mPagerAdapter = new MyPagerAdapter(getFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-        mPager.setOffscreenPageLimit(0);
 
         // draw borders around pages
         mPager.setPageMargin((int) TypedValue.applyDimension(
