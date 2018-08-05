@@ -4,6 +4,7 @@ This is an implementation of Udacity's Android Nanodegree project 6.
 
 The purpose of this project is to update app starter code to use [Material Design](https://material.io/design/).
 
+<strong><a href='https://github.com/nkrusch/XYZReader/releases'>Compiled APK available here »</a></strong>
 
 ## Modifications
 
