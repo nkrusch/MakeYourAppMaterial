@@ -22,3 +22,29 @@ The purpose of this project is to update app starter code to use [Material Desig
 <td> ✔️ Added text paging to improve load time </td>
 </tr>
 </table>
+
+## Screenshots
+
+<table>
+  <tr>
+    <th width="48%">Before</th>
+    <th width="48%">After</th>
+  </tr>
+  <tr>
+    <td>
+      <img width="100%" src="before_1.png" alt="before" />
+    </td>      
+    <td>
+      <img width="100%" src="after_1.png" alt="before" />
+    </td>      
+  </tr>
+  
+  <tr>
+    <td>
+      <img width="100%" src="before_2.png" alt="before" />
+    </td>      
+    <td>
+      <img width="100%" src="after_2.png" alt="before" />
+    </td>      
+  </tr>
+  </table>
