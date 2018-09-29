@@ -22,37 +22,3 @@ The purpose of this project is to update app starter code to use [Material Desig
 <td> ✔️ Added text paging to improve load time </td>
 </tr>
 </table>
-
-<br/><br/>
-
-## BEFORE/AFTER 
-
-<p align="right">
-<img align="left" src="https://res.cloudinary.com/duqi860ma/image/upload/v1533156191/xyzreader/ospg.gif" alt="original" />
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533156191/xyzreader/nspg.gif" alt="final" />
- </p>
- 
-<br/><br/>
-
-## Landscape Phone
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/sl1.png" alt="" />
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/sl2.png" />
- 
-<br/><br/>
-
-## Small Tablet
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/mp1.png" alt="" align="left"  />
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/mp2.png" alt="" />
- 
-<br/><br/>
-
-## Large Tablet
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/ll1.png" alt="" />
-
-<img src="https://res.cloudinary.com/duqi860ma/image/upload/v1533308395/ll2.png" alt="" />
